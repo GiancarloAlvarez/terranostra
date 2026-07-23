@@ -13,7 +13,7 @@
   /* Espaciado: base 8px, usa múltiplos */
   --space: 8px;
 
-  /* Otros */
+  
   --radius: 8px;
   --max-width: 1140px;
   --transition: 0.25s ease;
@@ -52,7 +52,7 @@ img {
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 calc(var(--space) * 3); /* 24px laterales */
+  padding: 0 calc(var(--space) * 3); 
 }
 
 /* Botón reutilizable con variantes */
@@ -80,7 +80,7 @@ img {
 
 
 .navbar {
-  position: absolute;   /* flota sobre el hero */
+  position: absolute;   
   top: 0;
   left: 0;
   width: 100%;
@@ -120,7 +120,7 @@ img {
   align-items: center;
   background: url('../assets/img/hero.jpg') center/cover no-repeat;
 }
-/* Capa oscura para que el texto se lea */
+
 .hero__overlay {
   position: absolute;
   inset: 0;
@@ -150,11 +150,78 @@ img {
 
 
 @media (max-width: 768px) {
-  /* Ocultamos enlaces; dejamos solo el CTA en móvil */
+  
   .navbar__link:not(.btn) {
     display: none;
   }
   .hero {
     min-height: 90vh;
   }
+}
+
+
+.section {
+  padding: calc(var(--space) * 10) 0; /* 80px arriba/abajo */
+}
+.section__header {
+  text-align: center;
+  margin-bottom: calc(var(--space) * 7); /* 56px */
+}
+.section__title {
+  font-family: var(--font-title);
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--color-text);
+  margin-bottom: var(--space);
+}
+.section__subtitle {
+  color: var(--color-secondary);
+  font-size: 1.1rem;
+}
+
+
+.menu__grid {
+  display: grid;
+  /* auto-fit + minmax = responsive SIN media queries */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: calc(var(--space) * 4); /* 32px */
+}
+
+/* Card de los  platos reutilizable */
+.dish-card {
+  background: var(--color-white);
+  border-radius: var(--radius);
+  overflow: hidden; /* recorta la imagen a los bordes redondeados */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.dish-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+.dish-card__img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* la imagen llena sin deformarse */
+}
+.dish-card__body {
+  padding: calc(var(--space) * 3); /* 24px */
+}
+.dish-card__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--space);
+}
+.dish-card__name {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+}
+.dish-card__price {
+  font-weight: 600;
+  color: var(--color-primary);
+  font-size: 1.15rem;
+}
+.dish-card__desc {
+  font-size: 0.95rem;
+  color: #666;
 }
