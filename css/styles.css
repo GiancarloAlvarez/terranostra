@@ -161,6 +161,15 @@ img {
   .about__grid {
     grid-template-columns: 1fr;
   }
+
+  .form__row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .location__grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 
@@ -270,4 +279,145 @@ img {
 .gallery__item:hover {
   transform: scale(1.03);
   filter: brightness(1.08);
+}
+
+
+/* ===========================================
+   RESERVAS — formulario
+   =========================================== */
+.reservation-form {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--color-white);
+  padding: calc(var(--space) * 5);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+.form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(var(--space) * 3);
+}
+.form__group {
+  margin-bottom: calc(var(--space) * 3);
+  display: flex;
+  flex-direction: column;
+}
+.form__label {
+  font-weight: 500;
+  margin-bottom: var(--space);
+  font-size: 0.95rem;
+}
+.form__input {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: calc(var(--space) * 1.5);
+  border: 1px solid #ddd;
+  border-radius: var(--radius);
+  transition: border-color var(--transition);
+}
+.form__input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+/* Estado de error: borde rojo */
+.form__input.is-invalid {
+  border-color: #d64545;
+}
+.form__error {
+  color: #d64545;
+  font-size: 0.85rem;
+  margin-top: calc(var(--space) * 0.5);
+  min-height: 1rem; 
+}
+.form__submit {
+  width: 100%;
+  border: none;
+  margin-top: var(--space);
+}
+/* Mensaje de éxito */
+.form__success {
+  display: none; 
+  text-align: center;
+  color: var(--color-secondary);
+  font-weight: 600;
+  margin-top: calc(var(--space) * 3);
+  padding: calc(var(--space) * 2);
+  background: rgba(107, 123, 79, 0.1);
+  border-radius: var(--radius);
+}
+.form__success.is-visible {
+  display: block; 
+}
+
+/* ===========================================
+   UBICACIÓN — info + mapa
+   =========================================== */
+.location__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(var(--space) * 5);
+  align-items: stretch;
+}
+.location__item {
+  margin-bottom: calc(var(--space) * 3);
+}
+.location__label {
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  margin-bottom: var(--space);
+  color: var(--color-primary);
+}
+.location__map {
+  min-height: 350px;
+  border-radius: var(--radius);
+  overflow: hidden; /* recorta el iframe a las esquinas redondeadas */
+}
+
+/* ===========================================
+   FOOTER
+   =========================================== */
+.footer {
+  background: var(--color-text); /* carbón oscuro */
+  color: var(--color-white);
+  padding-top: calc(var(--space) * 8);
+}
+.footer__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: calc(var(--space) * 4);
+  padding-bottom: calc(var(--space) * 6);
+}
+.footer__brand {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  margin-bottom: calc(var(--space) * 2);
+  color: var(--color-primary);
+}
+.footer__title {
+  font-size: 1.05rem;
+  margin-bottom: calc(var(--space) * 2);
+}
+.footer__text {
+  opacity: 0.8;
+  margin-bottom: var(--space);
+  font-size: 0.95rem;
+}
+.footer__link {
+  display: block;
+  opacity: 0.8;
+  margin-bottom: var(--space);
+  font-size: 0.95rem;
+  transition: opacity var(--transition), padding-left var(--transition);
+}
+.footer__link:hover {
+  opacity: 1;
+  padding-left: calc(var(--space) * 0.5); /* microinteracción sutil */
+}
+.footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  padding: calc(var(--space) * 3) 0;
+  font-size: 0.9rem;
+  opacity: 0.7;
 }
